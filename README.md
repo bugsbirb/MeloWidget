@@ -12,7 +12,8 @@ So you must create the widget & boot this up for yourself.
 > There has been many ways to create a widget at the moment, and there is no straight forward way for it.
 > <br /> So here are some tutorials that you could use.
 > <br/>
-> <br/> ` ⚠️ ` If you care about discords TOS, doing these methods could lead you to breaking the TOS. Discord has removed the safe way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
+> <br/> ` ⚠️ ` **Disclaimer:** If you care about the **discord TOS**, doing these methods could lead you to breaking the TOS. Discord has removed the safe way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
+> <br/> If you are one of the lucky ones who got access to this experiement early, ignore what I just said.
 > <br/>
 > <br/> - https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b @aamiaa
 > <br/> - https://www.rohan.run/writing/discord-widgets
