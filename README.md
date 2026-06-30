@@ -17,7 +17,7 @@ So you must create the widget & boot this up for yourself.
 > <br/> - https://discord.gg/discord-603970300668805120 (Discord Previews, widget section)
 > <br/>
 > <br/> **Disclaimer:** If you care about the **discord TOS**, doing these methods could lead you to breaking the TOS. Discord has removed the "safe" way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
-> <br/> Eventually/hopefully this will not be the case and widgets will become pubically avaliable for all applications.
+> <br/> Eventually/hopefully this will not be the case and widgets will become publicly avaliable for all applications.
 > <br/> If you are one of the lucky ones who got access to this experiement early, ignore what I just said.
 > <br/>
 
