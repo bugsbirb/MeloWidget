@@ -11,15 +11,17 @@ So you must create the widget & boot this up for yourself.
 
 > There has been many ways to create a widget at the moment, and there is no straight forward way for it.
 > <br /> So here are some tutorials that you could use.
-> <br/>
-> <br/> ` ⚠️ ` **Disclaimer:** If you care about the **discord TOS**, doing these methods could lead you to breaking the TOS. Discord has removed the "safe" way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
-> <br/> If you are one of the lucky ones who got access to this experiement early, ignore what I just said.
-> <br/>
 > <br/> - https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b @aamiaa
 > <br/> - https://www.rohan.run/writing/discord-widgets
 > <br/> - https://chloecinders.com/blog/discord-widgets
 > <br/> - https://discord.gg/discord-603970300668805120 (Discord Previews, widget section)
+> <br/>
+> <br/> **Disclaimer:** If you care about the **discord TOS**, doing these methods could lead you to breaking the TOS. Discord has removed the "safe" way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
+> <br/> Eventually/hopefully this will not be the case and widgets will become pubically avaliable for all applications.
+> <br/> If you are one of the lucky ones who got access to this experiement early, ignore what I just said.
+> <br/>
 
+<br />
 <details>
 <summary>MelonWidget Template</summary>
 
@@ -218,17 +220,18 @@ So you must create the widget & boot this up for yourself.
 ```
 
 </details>
-
+<br/>
 
 ## Showcases
 (What it looks like your widget board)
+<br/>
 <img width="952" height="564" style="border-radius: 12px;" alt="image" src="https://github.com/user-attachments/assets/43160184-1722-4e2c-8cae-efa6d1e6a4b1" />
+<br/>
 <br/>
 (What it looks like on your mini profile)
 <br/>
 <img width="302" height="402" alt="image" src="https://github.com/user-attachments/assets/c3aa23d2-0145-4eb3-bd84-38ac1d0e6263" />
 
-<br/>
 <br/>
 You may be seeing the N/A's which is because I am both lazy, about to run out of melonly api credits and discord forces you to have 6 options.
 
