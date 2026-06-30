@@ -1,5 +1,5 @@
 This project is unofficial, and is not affiliated with the Melonly team.
-Use Melonly @ https://melonly.xyz
+<br /> Use Melonly @ https://melonly.xyz
 
 ` ⚠️ ` Before you begin, this is an active discord experiement.
 Meaning you will need to take extra steps to achieve using this widget.
