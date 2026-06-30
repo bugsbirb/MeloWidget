@@ -57,7 +57,7 @@ public class Refresh: ApplicationCommandModule<ApplicationCommandContext>
         
         InteractionMessageProperties fresponse = new()
         {
-            Content = $"` ❌ ` **{Context.User.GlobalName},** your Melonly information has been synced to your widget."
+            Content = $"` ✅ ` **{Context.User.GlobalName},** your Melonly information has been synced to your widget."
         };
         await Context.Interaction.SendResponseAsync(InteractionCallback.Message(fresponse));
 
