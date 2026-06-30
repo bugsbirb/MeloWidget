@@ -1,13 +1,14 @@
+
 This project is unofficial, and is not affiliated with the Melonly team.
 <br /> Use Melonly @ https://melonly.xyz
 
 ` ⚠️ ` Before you begin, this is an active discord experiement.
 Meaning you will need to take extra steps to achieve using this widget.
 
-<br/>
-For the sake of not wanting to store peoples Melonly API Tokens, this project will not be run pubically by me & it has no functionality to allow for other API Tokens.
-
 ## How to create a Widget
+For the sake of not wanting to store peoples Melonly API Tokens, this project will not be run pubically by me & it has no functionality to allow for other API Tokens.
+So you must create the widget & boot this up for yourself.
+
 > There has been many ways to create a widget at the moment, and there is no straight forward way for it.
 > <br /> So here are some tutorials that you could use.
 > <br/> - https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b @aamiaa
