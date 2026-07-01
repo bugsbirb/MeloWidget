@@ -6,7 +6,7 @@ namespace Melon.Commands;
 
 public class Setup: ApplicationCommandModule<ApplicationCommandContext>
 {
-    private string _botId = Env.GetString("BOTID") ?? string.Empty;
+    private readonly string _botId = Env.GetString("BOTID") ?? string.Empty;
     
     [SlashCommand("setup", "Setups the Melonly widget.")]
     public async Task SetupWidget()

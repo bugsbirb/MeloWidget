@@ -1,0 +1,11 @@
+﻿services:
+  melon:
+    image: melon
+    build:
+      context: .
+      dockerfile: Melon/Dockerfile
+    volumes:
+      - ./data:/app/Data
+    env_file:
+      - .env
+    restart: unless-stopped

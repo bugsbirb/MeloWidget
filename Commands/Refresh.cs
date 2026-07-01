@@ -10,8 +10,8 @@ namespace Melon.Commands;
 
 public class Refresh: ApplicationCommandModule<ApplicationCommandContext>
 {
-    private Discord _discord = new();
-    private Melonly _melon = new();
+    private readonly Discord _discord = new();
+    private readonly Melonly _melon = new();
 
     [SlashCommand("refresh", "Refreshes the Melonly widget. (Expensive for api credits)")]
     public async Task RefreshCommand([SlashCommandParameter(Description = "Easier, saves you a melonly credit.")] string? melonUser = null, [SlashCommandParameter(Description = "Easier, saves you a melonly credit.")] string? serverName = null)

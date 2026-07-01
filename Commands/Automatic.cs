@@ -8,13 +8,14 @@ using NetCord.Services.ApplicationCommands;
 namespace Melon.Commands;
 
 [ModuleDisabled]
+[SlashCommand("autorefresh", "Automatically refreshes your widget")]
 public class Automatic: ApplicationCommandModule<ApplicationCommandContext>
 {
     private Discord _discord = new();
-    private Melonly _melon = new();
-    private Sqlite _sqlite = new();
+    private readonly Melonly _melon = new();
+    private readonly Sqlite _sqlite = new();
     
-    [SlashCommand("on", "Automatically refreshes your widget (Very Expensive)")]
+    [SubSlashCommand("on", "Automatically refreshes your widget (Very Expensive)")]
     public async Task On([SlashCommandParameter(Description = "Easier, saves you a melonly credit.")] string? melonUser = null)
     {
         ulong userId = Context.Interaction.User.Id;
@@ -51,7 +52,7 @@ public class Automatic: ApplicationCommandModule<ApplicationCommandContext>
 
     }
     
-    [SlashCommand("off", "Disables automatic refresh for your widget")]
+    [SubSlashCommand("off", "Disables automatic refresh for your widget")]
     public async Task Off()
     {
         await _sqlite.RemoveFromTask(Context.Interaction.User.Id);
