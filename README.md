@@ -6,7 +6,7 @@ This project is unofficial, and is not affiliated with the Melonly team.
 Meaning you will need to take extra steps to achieve using this widget.
 
 ## How to create a Widget
-For the sake of not wanting to store peoples Melonly API Tokens, this project will not be run pubically by me & it has no functionality to allow for other API Tokens.
+For the sake of not wanting to store peoples Melonly API Tokens, this project will not be run publicly by me & it has no functionality to allow for other API Tokens.
 So you must create the widget & boot this up for yourself.
 
 > There has been many ways to create a widget at the moment, and there is no straight forward way for it.
