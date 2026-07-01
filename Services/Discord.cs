@@ -14,7 +14,7 @@ public class Discord
 
     private Melonly _melon = new();
     private Time _time = new();
-    
+
     public Discord()
     {
         if (string.IsNullOrEmpty(_token))
@@ -40,13 +40,13 @@ public class Discord
                 sName = server.Name;
             }
         }
-        
+
         int totalModerations = await _melon.GetModerations(uId);
-        
+
         List<Shifts>? shifts = result.Value.Shifts;
-        
+
         ulong totalTime = 0;
-        
+
         if (shifts != null && shifts.Count != 0)
         {
             foreach (Shifts shift in shifts)
@@ -71,23 +71,44 @@ public class Discord
         TimeSpan duration = TimeSpan.FromMilliseconds(totalTime);
         List<object> dynamicData = new()
         {
-            new { type = 1, name = "time", value = _time.Format(duration)},
-            new { type = 1, name = "moderations", value = totalModerations},
-            new { type = 1, name = "shifts", value = result.Value.TotalCount.ToString()},
-            new { type = 1, name = "server", value = sName ?? "Unknown"}
-
+            new
+            {
+                type = 1,
+                name = "time",
+                value = _time.Format(duration),
+            },
+            new
+            {
+                type = 1,
+                name = "moderations",
+                value = totalModerations,
+            },
+            new
+            {
+                type = 1,
+                name = "shifts",
+                value = result.Value.TotalCount.ToString(),
+            },
+            new
+            {
+                type = 1,
+                name = "server",
+                value = sName ?? "Unknown",
+            },
         };
         return new
         {
             username = "MelWidget", // I don't get the use case for this? But it's on every tutorial.
-            data = new { dynamic = dynamicData }
+            data = new { dynamic = dynamicData },
         };
     }
 
-
     public async Task<bool> Call(ulong userId, object payload)
     {
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bot", _token);
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            "Bot",
+            _token
+        );
         string requestUri = $"{_baseUrl}/applications/{_botId}/users/{userId}/identities/0/profile";
 
         string jsonString = System.Text.Json.JsonSerializer.Serialize(payload);
@@ -97,5 +118,4 @@ public class Discord
         response.EnsureSuccessStatusCode();
         return true;
     }
-
 }

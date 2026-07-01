@@ -7,7 +7,7 @@ public class Sqlite
 {
     private const string _path = "Data/refresh.db";
     private readonly string _connectUri = $"Data Source={_path}";
-    
+
     private async Task<SqliteConnection> EstablishConnection()
     {
         Directory.CreateDirectory(Path.GetDirectoryName(_path)!);
@@ -21,11 +21,11 @@ public class Sqlite
         await using SqliteConnection connection = await EstablishConnection();
         await using SqliteCommand command = connection.CreateCommand();
         command.CommandText = """
-         CREATE TABLE IF NOT EXISTS tasks (
-          UserId TEXT NOT NULL, 
-          discordId TEXT NOT NULL
-        );
-        """;
+             CREATE TABLE IF NOT EXISTS tasks (
+              UserId TEXT NOT NULL, 
+              discordId TEXT NOT NULL
+            );
+            """;
         await command.ExecuteNonQueryAsync();
     }
 
@@ -35,13 +35,12 @@ public class Sqlite
         await using SqliteConnection connection = await EstablishConnection();
         await using SqliteCommand command = connection.CreateCommand();
         command.CommandText = """
-            INSERT INTO  tasks (UserId, discordId)
-            VALUES ($UserId, $discordId)
-        """;
-        command.Parameters.AddWithValue("$UserId",  userId);
+                INSERT INTO  tasks (UserId, discordId)
+                VALUES ($UserId, $discordId)
+            """;
+        command.Parameters.AddWithValue("$UserId", userId);
         command.Parameters.AddWithValue("$discordId", discordId);
         await command.ExecuteNonQueryAsync();
-        
     }
 
     public async Task RemoveFromTask(ulong discordId)
@@ -49,29 +48,34 @@ public class Sqlite
         await using SqliteConnection connection = await EstablishConnection();
         await using SqliteCommand command = connection.CreateCommand();
         command.CommandText = """
-           DELETE FROM tasks
-           WHERE discordId = $discordId
-         """;
+              DELETE FROM tasks
+              WHERE discordId = $discordId
+            """;
         command.Parameters.AddWithValue("$discordId", discordId);
         await command.ExecuteNonQueryAsync();
     }
-    
+
     public async Task<List<UserTasks>> GetTasks()
     {
         await using SqliteConnection connection = await EstablishConnection();
         await using SqliteCommand command = connection.CreateCommand();
         List<UserTasks> users = new();
         command.CommandText = """
-          SELECT UserId, discordId
-          FROM tasks
-          """;
+            SELECT UserId, discordId
+            FROM tasks
+            """;
         await using var reader = await command.ExecuteReaderAsync();
         while (reader.Read())
         {
-            users.Add(new UserTasks(){UserId = reader.GetString(0), DiscordId = (ulong)reader.GetInt64(1)});
+            users.Add(
+                new UserTasks()
+                {
+                    UserId = reader.GetString(0),
+                    DiscordId = (ulong)reader.GetInt64(1),
+                }
+            );
         }
 
         return users;
-
     }
 }

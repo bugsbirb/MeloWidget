@@ -3,7 +3,7 @@ using DotNetEnv;
 using Melon.Models;
 using Melon.Services;
 
-namespace Melon.Tasks;
+namespace Melon.Bot.Tasks;
 
 public class Refresh(ILogger<Refresh> logger, Sqlite sqlite, Discord discord) : BackgroundService
 {
@@ -21,9 +21,12 @@ public class Refresh(ILogger<Refresh> logger, Sqlite sqlite, Discord discord) : 
                 {
                     dynamicData = await discord.DynamicData(users.UserId, null);
                 }
-                catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.TooManyRequests)
+                catch (HttpRequestException ex)
+                    when (ex.StatusCode == HttpStatusCode.TooManyRequests)
                 {
-                    logger.LogWarning("Melonly rate limited/credits ran out during background refresh.");
+                    logger.LogWarning(
+                        "Melonly rate limited/credits ran out during background refresh."
+                    );
                     continue;
                 }
 
@@ -36,9 +39,10 @@ public class Refresh(ILogger<Refresh> logger, Sqlite sqlite, Discord discord) : 
                 {
                     continue;
                 }
-                logger.LogInformation($"[Automatic Refresh] @{users.UserId} information has been refreshed.");
+                logger.LogInformation(
+                    $"[Automatic Refresh] @{users.UserId} information has been refreshed."
+                );
                 await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
-
             }
             await Task.Delay(TimeSpan.FromMinutes(_delay), stoppingToken);
         }

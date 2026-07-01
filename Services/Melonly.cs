@@ -16,11 +16,9 @@ public static class Endpoints
 
 public class Melonly
 {
-
     private string _baseUrl = "https://api.melonly.xyz/api/v1";
     private string _token = Env.GetString("MELOTOKEN") ?? string.Empty;
     private HttpClient _http = new();
-    
 
     public Melonly()
     {
@@ -28,8 +26,8 @@ public class Melonly
         {
             Environment.FailFast("no token for melo set.");
         }
-        _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _token);
-
+        _http.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _token);
     }
 
     public async Task<Server?> GetServer()
@@ -41,15 +39,15 @@ public class Melonly
             throw new HttpRequestException(
                 $"` ⚠️ ` You have ran out of Melonly credits. Upgrade @ https://melonly.xyz/plus",
                 null,
-                response.StatusCode);
+                response.StatusCode
+            );
         }
         response.EnsureSuccessStatusCode();
         Server? result = await response.Content.ReadFromJsonAsync<Server>();
         return result;
-        
     }
 
-    public async  Task<(Member? result, HttpStatusCode StatusCode)> GetUser(ulong userId)
+    public async Task<(Member? result, HttpStatusCode StatusCode)> GetUser(ulong userId)
     {
         string url = $"{_baseUrl}{Endpoints.Member}/{userId}";
         HttpResponseMessage response = await _http.GetAsync(url);
@@ -68,35 +66,35 @@ public class Melonly
         response.EnsureSuccessStatusCode();
         var result = await response.Content.ReadFromJsonAsync<APiPagination<object>>();
         return result != null ? (int)result.Total : 0;
-         
-        
     }
-    
+
     public async Task<(List<Shifts>? Shifts, long TotalCount)?> GetShifts(string uId)
     {
         string url = $"{_baseUrl}{Endpoints.Shifts}/{uId}";
-        async Task<APiPagination<List<Shifts>>?> FetchPage(int pageNum)        
+        async Task<APiPagination<List<Shifts>>?> FetchPage(int pageNum)
         {
-            HttpResponseMessage response = await _http.GetAsync(url + $"?page={pageNum}&pageSize=100");
+            HttpResponseMessage response = await _http.GetAsync(
+                url + $"?page={pageNum}&pageSize=100"
+            );
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<APiPagination<List<Shifts>>>();
         }
-    
+
         var shifts = await FetchPage(1);
         if (shifts == null)
         {
             return (null, 0);
         }
-    
+
         long total = shifts.Total;
         List<Shifts> idk = new();
 
         if (shifts.TotalPages == 1)
         {
             idk.AddRange(shifts.Data);
-            return (idk, total); 
+            return (idk, total);
         }
-    
+
         for (int page = 2; page <= (int)shifts.TotalPages; page++)
         {
             var next = await FetchPage(page);
@@ -109,6 +107,4 @@ public class Melonly
 
         return (idk, total);
     }
-
-
 }
