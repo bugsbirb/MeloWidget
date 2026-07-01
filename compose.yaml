@@ -3,9 +3,11 @@
     image: melon
     build:
       context: .
-      dockerfile: Melon/Dockerfile
+      dockerfile: Dockerfile
     volumes:
-      - ./data:/app/Data
+      - ./Data:/app/Data
     env_file:
       - .env
     restart: unless-stopped
+    ports:
+      - "${CALLBACK_PORT:-8080}:${CALLBACK_PORT:-8080}"
