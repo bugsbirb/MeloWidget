@@ -245,10 +245,6 @@ So you must create the widget & boot this up for yourself.
 Only the owner of an application (or fellow members of the team owning the application) can use it on their profile.
 > If you want a group of people to use your widget, just add them to the bots team.
 
-## Automatic Refresh
-> Automatic refresh uses a sqlite database, which is a local database.
-> If you want to use Docker, keep the `tasks.db` file mounted as a volume.
-
 ## Showcases
 (What it looks like on your widget board)
 <br/>
