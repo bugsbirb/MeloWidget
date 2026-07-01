@@ -38,7 +38,7 @@ public class Refresh: ApplicationCommandModule<ApplicationCommandContext>
         {
             InteractionMessageProperties response = new()
             {
-                Content = "` ❌ ` For whatever reason, it doesn't be appearing to work. (Dynamic Data)"
+                Content = "` ❌ ` For whatever reason, it doesn't seem to be working. (Dynamic Data)"
             };
             await Context.Interaction.SendResponseAsync(InteractionCallback.Message(response));
             return;
@@ -49,7 +49,7 @@ public class Refresh: ApplicationCommandModule<ApplicationCommandContext>
         {
             InteractionMessageProperties response = new()
             {
-                Content = "` ❌ ` For whatever reason, it doesn't be appearing to work. (Data Call)"
+                Content = "` ❌ ` For whatever reason, it doesn't seem to be working. (Data Call)"
             };
             await Context.Interaction.SendResponseAsync(InteractionCallback.Message(response));
             return;
