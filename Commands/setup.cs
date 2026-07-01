@@ -18,7 +18,7 @@ public class Setup: ApplicationCommandModule<ApplicationCommandContext>
         };
         InteractionMessageProperties response = new()
         {
-            Content = $"Please authorise with the application using the button below.\nThere are a large amount of permissions it's asking for, but don't worry, we aren't storing the token.\nThis is just a side effect of Discord's Social SDK bizarre requirements.\n\nAuthorising will not edit this message, so as soon as you are done, run /refresh.",
+            Content = $"To continue authorise with the application using the button below.\n\n-# Authorising will not edit this message, so as soon as you are done, run /refresh.",
             Components = [components]
         };
         await Context.Interaction.SendResponseAsync(InteractionCallback.Message(response));
