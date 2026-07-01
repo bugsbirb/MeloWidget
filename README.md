@@ -15,6 +15,7 @@ So you must create the widget & boot this up for yourself.
 > <br/> - https://www.rohan.run/writing/discord-widgets
 > <br/> - https://chloecinders.com/blog/discord-widgets
 > <br/> - https://discord.gg/discord-603970300668805120 (Discord Previews, widget section)
+> <br/> - https://github.com/TheCreativeGod/Discord-Widgets-Extension (For dummies, Chrome extension) + You can import using the json "MelonWidget Template" below.
 > <br/>
 > <br/> **Disclaimer:** If you care about the **discord TOS**, doing these methods could lead you to breaking the TOS. Discord has removed the "safe" way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
 > <br/> Eventually/hopefully this will not be the case and widgets will become publicly avaliable for all applications.
@@ -238,6 +239,11 @@ So you must create the widget & boot this up for yourself.
 
 </details>
 <br/>
+
+## Allowing other people to use the widget
+> Discord has unfortunately limited the ability for people to use Widgets made by others for now.
+Only the owner of an application (or fellow members of the team owning the application) can use it on their profile.
+> If you want a group of people to use your widget, just add them to the bots team.
 
 ## Automatic Refresh
 > Automatic refresh uses a sqlite database, which is a local database.

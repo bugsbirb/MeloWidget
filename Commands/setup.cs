@@ -1,5 +1,4 @@
 using DotNetEnv;
-using NetCord;
 using NetCord.Rest;
 using NetCord.Services.ApplicationCommands;
 
@@ -14,7 +13,7 @@ public class Setup: ApplicationCommandModule<ApplicationCommandContext>
     {
         ActionRowProperties components = new()
         {
-            new LinkButtonProperties($"https://discord.com/oauth2/authorize?client_id={_botId}&response_type=code&scope=openid+sdk.social_layer", "Authorise")
+            new LinkButtonProperties($"https://discord.com/oauth2/authorize?client_id={_botId}&response_type=token&scope=openid+sdk.social_layer", "Authorise")
         };
         InteractionMessageProperties response = new()
         {
