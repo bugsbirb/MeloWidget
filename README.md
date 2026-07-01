@@ -252,7 +252,8 @@ Only the owner of an application (or fellow members of the team owning the appli
 <br/>
 (What it looks like on your mini profile)
 <br/>
-<img width="301" height="463" alt="image" src="https://github.com/user-attachments/assets/5fe8197c-c1ab-4db8-accf-d8a3b89ecf97" />
+<img width="311" height="475" alt="image" style="border-radius: 16px;" src="https://github.com/user-attachments/assets/d10f9e29-2561-4c61-abed-7451a4e6d3a9" />
+
 
 ## Credits
 - Icons provided by [Solar Icons](https://github.com/480-Design/Solar-Icon-Set).
