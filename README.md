@@ -1,4 +1,4 @@
-
+# MelonWidget
 This project is unofficial, and is not affiliated with the Melonly team.
 <br /> Use Melonly @ https://melonly.xyz
 
@@ -6,23 +6,18 @@ This project is unofficial, and is not affiliated with the Melonly team.
 Meaning you will need to take extra steps to achieve using this widget.
 
 ## How to create a Widget
-For the sake of not wanting to store peoples Melonly API Tokens, this project will not be run publicly by me & it has no functionality to allow for other API Tokens.
-So you must create the widget & boot this up for yourself.
-
-> There has been many ways to create a widget at the moment, and there is no straight forward way for it.
-> <br /> So here are some tutorials that you could use.
+> Here are some tutorials that you could use.
+> <br/> - https://github.com/TheCreativeGod/Discord-Widgets-Extension (For dummies, Chrome extension) + You can import using the json `MelonWidget Template` below.
 > <br/> - https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b @aamiaa
 > <br/> - https://www.rohan.run/writing/discord-widgets
 > <br/> - https://chloecinders.com/blog/discord-widgets
 > <br/> - https://discord.gg/discord-603970300668805120 (Discord Previews, widget section)
-> <br/> - https://github.com/TheCreativeGod/Discord-Widgets-Extension (For dummies, Chrome extension) + You can import using the json "MelonWidget Template" below.
 > <br/>
 > <br/> **Disclaimer:** If you care about the **discord TOS**, doing these methods could lead you to breaking the TOS. Discord has removed the "safe" way of adding widgets to your profile and creating widgets, meaning to add the widget to your profile & unlocking the create widget button you must break the TOS by using a client like vencord.
 > <br/> Eventually/hopefully this will not be the case and widgets will become publicly avaliable for all applications.
 > <br/> If you are one of the lucky ones who got access to this experiement early, ignore what I just said.
 > <br/>
 
-<br />
 <details>
 <summary>MelonWidget Template</summary>
 
@@ -234,7 +229,6 @@ So you must create the widget & boot this up for yourself.
 ```
 
 </details>
-<br/>
 
 ## Allowing other people to use the widget
 > Discord has unfortunately limited the ability for people to use Widgets made by others for now.
@@ -242,17 +236,29 @@ Only the owner of an application (or fellow members of the team owning the appli
 > If you want a group of people to use your widget, just add them to the bots team.
 
 ## Showcases
+
+### Profile
 (What it looks like on your widget board)
-<br/>
 <img width="897" height="733" alt="image" style="border-radius: 12px;" src="https://github.com/user-attachments/assets/7db8f9d9-de4a-4946-a5eb-619a030f37e0" />
-<br/>
-<img width="1061" height="208" alt="image" src="https://github.com/user-attachments/assets/54b712cf-3e6c-4acd-9a26-b089f7be6d76" />
-<br/>
-<img width="567" height="91" style="border-radius: 12px;"  alt="image" src="https://github.com/user-attachments/assets/d1c16913-019f-463f-a3f7-939119cabd10" />
 <br/>
 (What it looks like on your mini profile)
 <br/>
 <img width="311" height="475" alt="image" style="border-radius: 16px;" src="https://github.com/user-attachments/assets/d10f9e29-2561-4c61-abed-7451a4e6d3a9" />
+
+### Commands
+
+<img width="594" height="162" style="border-radius: 16px;" alt="image" src="https://github.com/user-attachments/assets/2d4bd214-f043-41c7-aec4-3f757bab470e" />
+<br/>
+
+<img width="567" height="91" style="border-radius: 16px;" alt="image" src="https://github.com/user-attachments/assets/d1c16913-019f-463f-a3f7-939119cabd10" />
+<br/>
+
+<img width="745" height="86" style="border-radius: 16px;" alt="image" src="https://github.com/user-attachments/assets/f1569f0a-42f1-4fa9-8514-5a1eda613770" />
+<br/>
+
+
+
+
 
 
 ## Credits
