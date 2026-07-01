@@ -244,6 +244,9 @@ So you must create the widget & boot this up for yourself.
 <br/>
 <img width="901" height="543" style="border-radius: 12px;" alt="image" src="https://github.com/user-attachments/assets/526a6c3b-1332-46bf-af0a-b1e228184ed0" />
 <br/>
+<img width="1061" height="208" alt="image" src="https://github.com/user-attachments/assets/54b712cf-3e6c-4acd-9a26-b089f7be6d76" />
+<br/>
+<img width="567" height="91" style="border-radius: 12px;"  alt="image" src="https://github.com/user-attachments/assets/d1c16913-019f-463f-a3f7-939119cabd10" />
 <br/>
 (What it looks like on your mini profile)
 <br/>
