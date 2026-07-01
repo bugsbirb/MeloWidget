@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Json;
 using DotNetEnv;
 using Melon.Models;
@@ -35,19 +36,29 @@ public class Melonly
     {
         string url = $"{_baseUrl}{Endpoints.Server}";
         HttpResponseMessage response = await _http.GetAsync(url);
+        if (response.StatusCode == HttpStatusCode.TooManyRequests)
+        {
+            throw new HttpRequestException(
+                $"` ⚠️ ` You have ran out of Melonly credits. Upgrade @ https://melonly.xyz/plus",
+                null,
+                response.StatusCode);
+        }
         response.EnsureSuccessStatusCode();
         Server? result = await response.Content.ReadFromJsonAsync<Server>();
         return result;
         
     }
 
-    public async Task<Member?> GetUser(ulong userId)
+    public async  Task<(Member? result, HttpStatusCode StatusCode)> GetUser(ulong userId)
     {
         string url = $"{_baseUrl}{Endpoints.Member}/{userId}";
         HttpResponseMessage response = await _http.GetAsync(url);
-        response.EnsureSuccessStatusCode();
+        if (!response.IsSuccessStatusCode)
+        {
+            return (null, response.StatusCode);
+        }
         Member? result = await response.Content.ReadFromJsonAsync<Member>();
-        return result;
+        return (result, response.StatusCode);
     }
 
     public async Task<int> GetModerations(string uId)

@@ -1,3 +1,4 @@
+using System.Net;
 using Melon.Attributes;
 using Melon.Models;
 using Melon.Services;
@@ -20,7 +21,16 @@ public class Automatic: ApplicationCommandModule<ApplicationCommandContext>
         string melonId = melonUser ?? string.Empty;
         if (melonUser == null)
         {
-            Member? aMelon = await _melon.GetUser(userId);
+            (Member? aMelon, HttpStatusCode code) = await _melon.GetUser(userId);
+            if (code == HttpStatusCode.TooManyRequests)
+            {
+                InteractionMessageProperties response = new()
+                {
+                    Content = $"` ❌ ` **{Context.Interaction.User.GlobalName},** you've ran out of Melonly API credits. Upgrade @ https://melonly.xyz/plus"
+                };
+                await Context.Interaction.SendResponseAsync(InteractionCallback.Message(response));
+                return;
+            }
             if (aMelon == null)
             {
                 InteractionMessageProperties response = new()

@@ -69,7 +69,6 @@ public class Discord
         }
         totalTime = Math.Max(totalTime, 0);
         TimeSpan duration = TimeSpan.FromMilliseconds(totalTime);
-        Console.WriteLine(_time.Format(duration));
         List<object> dynamicData = new()
         {
             new { type = 1, name = "time", value = _time.Format(duration)},
@@ -95,13 +94,7 @@ public class Discord
         StringContent jsonPayload = new(jsonString, Encoding.UTF8, "application/json");
 
         HttpResponseMessage response = await _httpClient.PatchAsync(requestUri, jsonPayload);
-
-        if (!response.IsSuccessStatusCode)
-        {
-            string errorJson = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"[DISCORD API ERROR CODE: {(int)response.StatusCode}] Details: {errorJson}");
-            return false;
-        }
+        response.EnsureSuccessStatusCode();
         return true;
     }
 

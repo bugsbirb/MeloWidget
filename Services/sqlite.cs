@@ -5,9 +5,9 @@ namespace Melon.Services;
 
 public class Sqlite
 {
-    private string _connectUri = "Data Source=tracked.db";
+    private readonly string _connectUri = "Data Source=tracked.db";
     
-    public async Task<SqliteConnection> EstablishConnection()
+    private async Task<SqliteConnection> EstablishConnection()
     {
         SqliteConnection connection = new(_connectUri);
         await connection.OpenAsync();
@@ -61,7 +61,7 @@ public class Sqlite
         await using SqliteCommand command = connection.CreateCommand();
         List<UserTasks> users = new();
         command.CommandText = """
-          SELECT UserId
+          SELECT UserId, discordId
           FROM tasks
           """;
         await using var reader = await command.ExecuteReaderAsync();
