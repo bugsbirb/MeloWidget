@@ -247,7 +247,7 @@ Only the owner of an application (or fellow members of the team owning the appli
 
 ## Automatic Refresh
 > Automatic refresh uses a sqlite database, which is a local database.
-> If you want to use Docker, to keep the `.db` file mounted you must mount the volume.
+> If you want to use Docker, keep the `tasks.db` file mounted as a volume.
 
 ## Showcases
 (What it looks like on your widget board)
