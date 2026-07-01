@@ -13,7 +13,8 @@ public class Discord
     private string _botId = Env.GetString("BOTID") ?? string.Empty;
 
     private Melonly _melon = new();
-
+    private Time _time = new();
+    
     public Discord()
     {
         if (string.IsNullOrEmpty(_token))
@@ -22,12 +23,22 @@ public class Discord
         }
     }
 
-    public async Task<object?> DynamicData(string uId)
+    public async Task<object?> DynamicData(string uId, string? serverName)
     {
         (List<Shifts>? Shifts, long TotalCount)? result = await _melon.GetShifts(uId);
         if (result == null)
         {
             return null;
+        }
+
+        string? sName = serverName;
+        if (string.IsNullOrEmpty(serverName))
+        {
+            Server? server = await _melon.GetServer();
+            if (server != null)
+            {
+                sName = server.Name;
+            }
         }
         
         int totalModerations = await _melon.GetModerations(uId);
@@ -56,14 +67,17 @@ public class Discord
                 }
             }
         }
+        totalTime = Math.Max(totalTime, 0);
         TimeSpan duration = TimeSpan.FromMilliseconds(totalTime);
+        Console.WriteLine(_time.Format(duration));
         List<object> dynamicData = new()
         {
-            new { type = 1, name = "time", value = $"{(int)duration.TotalHours}h {duration.Minutes}m"},
-            new { type = 1, name = "moderations", value = totalModerations },
-            new { type = 1, name = "shifts", value = result.Value.TotalCount.ToString() }
-        };
+            new { type = 1, name = "time", value = _time.Format(duration)},
+            new { type = 1, name = "moderations", value = totalModerations},
+            new { type = 1, name = "shifts", value = result.Value.TotalCount.ToString()},
+            new { type = 1, name = "server", value = sName ?? "Unknown"}
 
+        };
         return new
         {
             username = "MelWidget", // I don't get the use case for this? But it's on every tutorial.

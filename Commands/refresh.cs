@@ -13,7 +13,7 @@ public class Refresh: ApplicationCommandModule<ApplicationCommandContext>
     private Melonly _melon = new();
 
     [SlashCommand("refresh", "Refreshes the Melonly widget. (Expensive for api credits)")]
-    public async Task RefreshCommand([SlashCommandParameter(Description = "Easier, saves you a melonly credit.")] string? melonUser = null)
+    public async Task RefreshCommand([SlashCommandParameter(Description = "Easier, saves you a melonly credit.")] string? melonUser = null, [SlashCommandParameter(Description = "Easier, saves you a melonly credit.")] string? serverName = null)
     {
         ulong userId = Context.Interaction.User.Id;
         string melonId = melonUser ?? string.Empty;
@@ -33,7 +33,7 @@ public class Refresh: ApplicationCommandModule<ApplicationCommandContext>
         }
 
 
-        object? dynamicData = await _discord.DynamicData(melonId);
+        object? dynamicData = await _discord.DynamicData(melonId, serverName);
         if (dynamicData == null)
         {
             InteractionMessageProperties response = new()

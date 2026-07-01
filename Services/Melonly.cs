@@ -10,6 +10,7 @@ public static class Endpoints
     public const string Moderations = "/server/logs/staff";
     public const string Shifts = "/server/shifts/user";
     public const string Member = "/server/members/discord";
+    public const string Server = "/server/info";
 }
 
 public class Melonly
@@ -30,10 +31,19 @@ public class Melonly
 
     }
 
+    public async Task<Server?> GetServer()
+    {
+        string url = $"{_baseUrl}{Endpoints.Server}";
+        HttpResponseMessage response = await _http.GetAsync(url);
+        response.EnsureSuccessStatusCode();
+        Server? result = await response.Content.ReadFromJsonAsync<Server>();
+        return result;
+        
+    }
+
     public async Task<Member?> GetUser(ulong userId)
     {
         string url = $"{_baseUrl}{Endpoints.Member}/{userId}";
-        Console.WriteLine(url);
         HttpResponseMessage response = await _http.GetAsync(url);
         response.EnsureSuccessStatusCode();
         Member? result = await response.Content.ReadFromJsonAsync<Member>();
