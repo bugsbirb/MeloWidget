@@ -258,4 +258,6 @@ Only the owner of an application (or fellow members of the team owning the appli
 <br/>
 <img width="301" height="463" alt="image" src="https://github.com/user-attachments/assets/5fe8197c-c1ab-4db8-accf-d8a3b89ecf97" />
 
+## Credits
+- Icons provided by [Solar Icons](https://github.com/480-Design/Solar-Icon-Set).
 
