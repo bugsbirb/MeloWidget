@@ -10,4 +10,4 @@
       - .env
     restart: unless-stopped
     ports:
-      - "${CALLBACK_PORT:-8080}:${CALLBACK_PORT:-8080}"
+      - "${CALLBACK_PORT:-2742}:${CALLBACK_PORT:-2742}"
